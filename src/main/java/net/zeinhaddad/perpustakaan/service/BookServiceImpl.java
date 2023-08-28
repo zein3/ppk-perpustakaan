@@ -31,5 +31,15 @@ public class BookServiceImpl implements BookService {
         
         return bookDtos;
     }
+
+    @Override
+    public List<BookDto> searchBooks(String query) {
+        List<Book> books = bookRepository.findByTitleContainingOrAuthorContainingOrDescriptionContaining(query, query, query);
+        List<BookDto> bookDtos = books.stream()
+            .map((book) -> (BookMapper.mapToDto(book)))
+            .collect(Collectors.toList());
+
+        return bookDtos;
+    }
     
 }

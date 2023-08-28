@@ -44,6 +44,11 @@ public class JsonRpcController {
                 case "getBooks":
                     List<BookDto> books = bookService.getBooks();
                     return ResponseEntity.ok(new JsonRpcResponse(books, request.getId()));
+
+                case "searchBooks":
+                    String query = params.get("query").asText();
+                    List<BookDto> results = bookService.searchBooks(query);
+                    return ResponseEntity.ok(new JsonRpcResponse(results, request.getId()));
                 
                 default:
                     return ResponseEntity.badRequest().build();

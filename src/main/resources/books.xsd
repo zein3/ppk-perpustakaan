@@ -28,4 +28,15 @@
         </xs:complexType>
     </xs:element>
 
+    <xs:element name="getBooksRequest">
+    </xs:element>
+
+    <xs:element name="getBooksResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="books" type="tns:book" maxOccurs="unbounded" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
 </xs:schema>

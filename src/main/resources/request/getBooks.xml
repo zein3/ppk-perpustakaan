@@ -1,0 +1,8 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://zeinhaddad.net/perpustakaan/soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:getBooksRequest>
+      </gs:getBooksRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

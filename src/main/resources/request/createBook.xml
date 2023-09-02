@@ -1,0 +1,13 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+				  xmlns:gs="http://zeinhaddad.net/perpustakaan/soap">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <gs:createBookRequest>
+         <gs:book>
+            <gs:title>Uji coba</gs:title>
+            <gs:author>Anonymous</gs:author>
+            <gs:description>Cuma buat coba coba aja</gs:description>
+         </gs:book>
+      </gs:createBookRequest>
+   </soapenv:Body>
+</soapenv:Envelope>

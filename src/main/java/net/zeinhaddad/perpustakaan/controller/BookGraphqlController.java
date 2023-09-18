@@ -13,6 +13,7 @@ import net.zeinhaddad.perpustakaan.service.BookService;
 
 @Controller
 public class BookGraphqlController {
+
     @Autowired
     private BookService bookService;
 

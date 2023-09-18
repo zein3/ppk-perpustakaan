@@ -18,8 +18,9 @@ public class BookServiceImpl implements BookService {
     private BookRepository bookRepository;
 
     @Override
-    public void createBook(BookDto bookDto) {
-        bookRepository.save(BookMapper.mapToBook(bookDto));
+    public BookDto createBook(BookDto bookDto) {
+        Book book = bookRepository.save(BookMapper.mapToBook(bookDto));
+        return BookMapper.mapToDto(book);
     }
 
     @Override
@@ -33,13 +34,20 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public List<BookDto> searchBooks(String query) {
-        List<Book> books = bookRepository.findByTitleContainingOrAuthorContainingOrDescriptionContaining(query, query, query);
-        List<BookDto> bookDtos = books.stream()
-            .map((book) -> (BookMapper.mapToDto(book)))
-            .collect(Collectors.toList());
+    public BookDto getBook(Long id) {
+        Book book = bookRepository.getReferenceById(id);
+        return BookMapper.mapToDto(book);
+    }
 
-        return bookDtos;
+    @Override
+    public BookDto updateBook(BookDto bookDto) {
+        Book book = bookRepository.save(BookMapper.mapToBook(bookDto));
+        return BookMapper.mapToDto(book);
+    }
+
+    @Override
+    public void deleteBook(BookDto bookDto) {
+        bookRepository.delete(BookMapper.mapToBook(bookDto));
     }
     
 }

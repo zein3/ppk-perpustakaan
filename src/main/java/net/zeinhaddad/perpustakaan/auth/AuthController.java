@@ -63,6 +63,16 @@ public class AuthController {
         }
     }
 
+    @Operation(summary = "register a new user")
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "201",
+            description = "user created",
+            content = {
+                @Content(mediaType = "application/json", schema = @Schema(implementation = UserDto.class))
+            }
+        )
+    })
     @PostMapping("/register")
     public ResponseEntity<?> register(@RequestBody UserDto request) {
         UserDto user = userService.createUser(request);
